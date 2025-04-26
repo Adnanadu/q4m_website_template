@@ -21,7 +21,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/
   # fonts:
   #   - family: Schyler
   #     fonts:

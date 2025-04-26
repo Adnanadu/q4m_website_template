@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SearchController searchController = SearchController();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -19,6 +22,8 @@ class HomePage extends StatelessWidget {
               // country and language selection
               CountryAndLanguageSelectorWidget(),
               //search bar
+              SearchBarWidget(searchController: searchController),
+              //login button
               
             ],
           ),
