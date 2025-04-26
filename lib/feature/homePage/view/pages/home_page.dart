@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,7 +13,16 @@ class HomePage extends StatelessWidget {
           actions: [IconButton(icon: Icon(Icons.menu), onPressed: () {})],
         ),
 
-        body: SingleChildScrollView(child: Column(children: [])),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // country and language selection
+              CountryAndLanguageSelectorWidget(),
+              //search bar
+              
+            ],
+          ),
+        ),
       ),
     );
   }
