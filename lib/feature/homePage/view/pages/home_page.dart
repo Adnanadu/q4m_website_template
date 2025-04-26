@@ -5,6 +5,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Image(image: AssetImage('assets/icons/Q4M_logo.png')),
+          actions: [IconButton(icon: Icon(Icons.menu), onPressed: () {})],
+        ),
+
+        body: SingleChildScrollView(child: Column(children: [])),
+      ),
+    );
   }
 }
