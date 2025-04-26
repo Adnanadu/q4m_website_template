@@ -3,7 +3,9 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/cafe_at_home_
 import 'package:q4m_website_template/feature/homePage/view/widgets/categories_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/customized_list_view_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/login_and_signup_button_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/product_container_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/video_ads_widget.dart';
 
@@ -36,10 +38,40 @@ class HomePage extends StatelessWidget {
       },
       {'iconPath': 'assets/icons/catogaries_icon_5.png', 'title': 'Wellness'},
     ];
-
+    // final List<String> scoialMediaIcons = [
+    //   'assets/icons/social_media_fb.png',
+    //   'assets/icons/social_media_insta.png',
+    //   'assets/icons/social_media_twitter.png',
+    //   'assets/icons/social_media_youtube.png',
+    // ];
+    // Container(
+    //             height: 35,
+    //             width: double.infinity,
+    //             color: const Color(0xFF2CC457),
+    //             decoration: BoxDecoration(
+    //               color: Colors.white,
+    //               borderRadius: BorderRadius.circular(36),
+    //             ),
+    //             child: ListView.builder(
+    //               itemCount: scoialMediaIcons.length,
+    //               physics: const NeverScrollableScrollPhysics(),
+    //               shrinkWrap: true,
+    //               itemBuilder:
+    //                   (context, index) => SizedBox(
+    //                     height: 35,
+    //                     width: 35,
+    //                     child: Center(
+    //                       child: Image(
+    //                         image: AssetImage(scoialMediaIcons[index]),
+    //                         color: Colors.black,
+    //                       ),
+    //                     ),
+    //                   ),
+    //             ),
+    //           ),
     SearchController searchController = SearchController();
-    final sceenheight = MediaQuery.sizeOf(context).height;
-    final sceenwidth = MediaQuery.sizeOf(context).width;
+    // final sceenheight = MediaQuery.sizeOf(context).height;
+    // final sceenwidth = MediaQuery.sizeOf(context).width;
 
     return SafeArea(
       child: Scaffold(
@@ -51,8 +83,6 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-
-              
               // country and language selection
               CountryAndLanguageSelectorWidget(),
               //search bar
@@ -87,63 +117,10 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+              // Products
+              ProductContainerWidget(),
 
-                itemCount: 8,
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 8.0,
-                  childAspectRatio: 9 / 13,
-                  // childAspectRatio: 260 / 409,
-                ),
-                padding: EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 8),
-                itemBuilder: (context, index) {
-                  return Container(
-                    // height: 950,
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Image(image: AssetImage('assets/images/product.png')),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4, left: 1),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Nesto"),
-                                  Text("MIDNIGHT SALE"),
-                                ],
-                              ),
-                              Container(
-                                height: 40,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF2CC457),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(36),
-                                    bottomLeft: Radius.circular(36),
-                                  ),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '+12 Pages',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+              FooterTableWidget(),
             ],
           ),
         ),
