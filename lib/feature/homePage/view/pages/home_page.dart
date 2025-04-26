@@ -43,14 +43,16 @@ class HomePage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Image(image: AssetImage('assets/icons/Q4M_logo.png')),
-          actions: [IconButton(icon: Icon(Icons.menu), onPressed: () {})],
-        ),
-
         body: SingleChildScrollView(
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image(image: AssetImage('assets/icons/Q4M_logo.png')),
+                  IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+                ],
+              ),
               // country and language selection
               CountryAndLanguageSelectorWidget(),
               //search bar

@@ -32,7 +32,10 @@ class ProductContainerWidget extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [Text("Nesto"), Text("MIDNIGHT SALE")],
+                      children: [
+                        Text("Nesto"),
+                        Row(children: [Text("MIDNIGHT SALE")]),
+                      ],
                     ),
                     Container(
                       height: 40,
