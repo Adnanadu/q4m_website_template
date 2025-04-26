@@ -5,6 +5,7 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_l
 import 'package:q4m_website_template/feature/homePage/view/widgets/customized_list_view_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/login_and_signup_button_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/video_ads_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,6 +38,8 @@ class HomePage extends StatelessWidget {
     ];
 
     SearchController searchController = SearchController();
+    final sceenheight = MediaQuery.sizeOf(context).height;
+    final sceenwidth = MediaQuery.sizeOf(context).width;
 
     return SafeArea(
       child: Scaffold(
@@ -48,6 +51,8 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
+
+              
               // country and language selection
               CountryAndLanguageSelectorWidget(),
               //search bar
@@ -70,6 +75,74 @@ class HomePage extends StatelessWidget {
               CustomizedListViewWidget(
                 text: 'Top Categories',
                 categories: categories,
+              ),
+              // Advertisement Container
+              VideoAdsWidget(),
+              VideoAdsWidget(),
+              Row(
+                children: [
+                  Text(
+                    "UAE - DUBAI offers in q4m Online",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+
+                itemCount: 8,
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
+                  childAspectRatio: 9 / 13,
+                  // childAspectRatio: 260 / 409,
+                ),
+                padding: EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 8),
+                itemBuilder: (context, index) {
+                  return Container(
+                    // height: 950,
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Image(image: AssetImage('assets/images/product.png')),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4, left: 1),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Nesto"),
+                                  Text("MIDNIGHT SALE"),
+                                ],
+                              ),
+                              Container(
+                                height: 40,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF2CC457),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(36),
+                                    bottomLeft: Radius.circular(36),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '+12 Pages',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ],
           ),
