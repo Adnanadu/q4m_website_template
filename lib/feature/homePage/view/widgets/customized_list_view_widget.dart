@@ -7,7 +7,7 @@ class CustomizedListViewWidget extends StatelessWidget {
     required this.text,
   });
 
-  final List<Map<String, String>> categories;
+  final List<Map<String, String?>> categories;
   final String text;
 
   @override

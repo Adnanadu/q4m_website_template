@@ -11,27 +11,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final List<Map<String, String>> services = [
-    //   {
-    //     'iconPath': 'assets/icons/icons_3.png',
-    //     'title': ,
-    //   },
-    //   {
-    //     'iconPath': 'assets/icons/assets/icons/icons_4.png',
-    //     'title': 'Professional',
-    //   },
-    //   {
-    //     'iconPath': 'assets/icons/assets/icons/icons_5.png',
-    //     'title': 'Document',
-    //   },
-    // ];
+    final List<Map<String, String>> services = [
+      {'iconPath': 'assets/icons/icons_3.png', 'title': 'delivery'},
+      {'iconPath': 'assets/icons/icons_4.jpg', 'title': 'Document'},
+      {'iconPath': 'assets/icons/icons_5.jpg', 'title': 'Ticket'},
+      {'iconPath': 'assets/icons/icons_6.jpg', 'title': 'Professional'},
+    ];
 
     final List<Map<String, String>> brands = [
-      {'iconPath': 'assets/icons/top_brand_logo_1.png', 'title': ''},
-      {'iconPath': 'assets/icons/top_brand_logo_2.png', 'title': ''},
-      {'iconPath': 'assets/icons/top_brand_logo_3.png', 'title': ''},
-      {'iconPath': 'assets/icons/top_brand_logo_4.png', 'title': ''},
-      {'iconPath': 'assets/icons/top_brand_logo_5.png', 'title': ''},
+      {'iconPath': 'assets/icons/top_brand_logo_1.png'},
+      {'iconPath': 'assets/icons/top_brand_logo_2.png'},
+      {'iconPath': 'assets/icons/top_brand_logo_3.png'},
+      {'iconPath': 'assets/icons/top_brand_logo_4.png'},
+      {'iconPath': 'assets/icons/top_brand_logo_5.png'},
     ];
     final List<Map<String, String>> categories = [
       {'iconPath': 'assets/icons/catogaries_icon_1.png', 'title': 'Pharmacy'},
@@ -69,10 +61,11 @@ class HomePage extends StatelessWidget {
 
               //categories
               CategoriesSelectorWidget(),
-              // CustomizedListViewWidget(
-              //   text: 'Our Services',
-              //   categories: services,
-              // ),
+
+              CustomizedListViewWidget(
+                text: 'Top Brands',
+                categories: services,
+              ),
               CustomizedListViewWidget(text: 'Top Brands', categories: brands),
               CustomizedListViewWidget(
                 text: 'Top Categories',
