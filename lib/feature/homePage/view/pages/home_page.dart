@@ -6,6 +6,7 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/customized_li
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/login_and_signup_button_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/product_container_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/product_filter_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/video_ads_widget.dart';
 
@@ -38,40 +39,7 @@ class HomePage extends StatelessWidget {
       },
       {'iconPath': 'assets/icons/catogaries_icon_5.png', 'title': 'Wellness'},
     ];
-    // final List<String> scoialMediaIcons = [
-    //   'assets/icons/social_media_fb.png',
-    //   'assets/icons/social_media_insta.png',
-    //   'assets/icons/social_media_twitter.png',
-    //   'assets/icons/social_media_youtube.png',
-    // ];
-    // Container(
-    //             height: 35,
-    //             width: double.infinity,
-    //             color: const Color(0xFF2CC457),
-    //             decoration: BoxDecoration(
-    //               color: Colors.white,
-    //               borderRadius: BorderRadius.circular(36),
-    //             ),
-    //             child: ListView.builder(
-    //               itemCount: scoialMediaIcons.length,
-    //               physics: const NeverScrollableScrollPhysics(),
-    //               shrinkWrap: true,
-    //               itemBuilder:
-    //                   (context, index) => SizedBox(
-    //                     height: 35,
-    //                     width: 35,
-    //                     child: Center(
-    //                       child: Image(
-    //                         image: AssetImage(scoialMediaIcons[index]),
-    //                         color: Colors.black,
-    //                       ),
-    //                     ),
-    //                   ),
-    //             ),
-    //           ),
     SearchController searchController = SearchController();
-    // final sceenheight = MediaQuery.sizeOf(context).height;
-    // final sceenwidth = MediaQuery.sizeOf(context).width;
 
     return SafeArea(
       child: Scaffold(
@@ -109,6 +77,9 @@ class HomePage extends StatelessWidget {
               // Advertisement Container
               VideoAdsWidget(),
               VideoAdsWidget(),
+
+              // Products Filter Container
+              ProductFilterWidget(),
               Row(
                 children: [
                   Text(
@@ -117,6 +88,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+
               // Products
               ProductContainerWidget(),
 
