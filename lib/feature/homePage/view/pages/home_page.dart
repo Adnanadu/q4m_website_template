@@ -4,7 +4,6 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/categories_se
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/customized_list_view_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
-import 'package:q4m_website_template/feature/homePage/view/widgets/login_and_signup_button_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/product_container_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/product_filter_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
@@ -16,7 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, String>> services = [
-      {'iconPath': 'assets/icons/icons_3.png', 'title': 'delivery'},
+      {'iconPath': 'assets/icons/icons_3.png', 'title': 'coupens'},
       {'iconPath': 'assets/icons/icons_4.jpg', 'title': 'Document'},
       {'iconPath': 'assets/icons/icons_5.jpg', 'title': 'Ticket'},
       {'iconPath': 'assets/icons/icons_6.jpg', 'title': 'Professional'},
@@ -46,10 +45,35 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              // header with logo and menu icon - appbar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image(image: AssetImage('assets/icons/Q4M_logo.png')),
+
+                  // login and signup button
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: Color(0xFF2CC457),
+                      // primary: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 42,
+                        vertical: 8,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(36),
+                      ),
+                    ),
+                    child: Text(
+                      'Login / Sign Up',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+
+                  // menu icon
+                  SizedBox(width: 8),
+
                   IconButton(icon: Icon(Icons.menu), onPressed: () {}),
                 ],
               ),
@@ -58,7 +82,7 @@ class HomePage extends StatelessWidget {
               //search bar
               SearchBarWidget(searchController: searchController),
               //login button
-              LoginAndSignupButtonWidget(),
+              // LoginAndSignupButtonWidget(),
 
               //cafe at home image - ads
               CafeatHomeAdsWidget(),
@@ -68,7 +92,7 @@ class HomePage extends StatelessWidget {
               CategoriesSelectorWidget(),
 
               CustomizedListViewWidget(
-                text: 'Top Brands',
+                text: 'Our Services',
                 categories: services,
               ),
               CustomizedListViewWidget(text: 'Top Brands', categories: brands),
