@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/appbar_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/categories_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/coupen_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
-import 'package:q4m_website_template/feature/homePage/view/widgets/product_container_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/product_filter_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
 
@@ -34,7 +34,8 @@ class CoupenPage extends StatelessWidget {
               // Products Filter Container
               ProductFilterWidget(),
               // Products
-              ProductContainerWidget(),
+              CoupenWidget(),
+              SizedBox(height: 32),
 
               FooterTableWidget(),
             ],
