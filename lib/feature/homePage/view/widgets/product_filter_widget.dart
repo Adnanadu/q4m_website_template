@@ -5,120 +5,100 @@ class ProductFilterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    return Center(
       child: Container(
-        height: 160,
+        padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 9, // 3x3
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            childAspectRatio: 2.5, // 👈 makes the chip wider and short
-          ),
-          itemBuilder: (context, index) {
-            final chips = [
-              const TextChip(label: 'All Offers', isSelected: true),
-              const TextChip(label: 'Eid Offers'),
-
-              const IconChip(icon: Icons.tune),
-              const TextChip(label: 'Supermarket'),
-              const TextChip(label: 'Electronics'),
-              const TextChip(label: 'Others'),
-              const IconChip(
-                label: 'Offers',
-                icon: Icons.local_offer,
-                isSelected: true,
-              ),
-              const IconChip(label: 'Product', icon: Icons.inventory),
-              const IconChip(label: 'Coupons', icon: Icons.card_membership),
-            ];
-            return chips[index];
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class TextChip extends StatelessWidget {
-  final String label;
-  final bool isSelected;
-
-  const TextChip({super.key, required this.label, this.isSelected = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      decoration: BoxDecoration(
-        color: isSelected ? Colors.green : Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        label,
-        style: TextStyle(
-          color: isSelected ? Colors.white : Colors.black87,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          height: 1.2,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
-
-class IconChip extends StatelessWidget {
-  final String? label;
-  final IconData icon;
-  final bool isSelected;
-
-  const IconChip({
-    super.key,
-    this.label,
-    required this.icon,
-    this.isSelected = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected ? Colors.green : Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 18,
-            color: isSelected ? Colors.white : Colors.black54,
-          ),
-          if (label != null) ...[
-            const SizedBox(width: 6),
-            Text(
-              label!,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.black87,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
+        child: Table(
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: [
+            TableRow(
+              children: [
+                _buildCategoryButton('All Offers', isActive: true),
+                _buildCategoryButton('Eid Offers'),
+                _buildIconButton(Icons.settings),
+              ],
+            ),
+            TableRow(
+              children: [
+                _buildCategoryButton('Supermarket'),
+                _buildCategoryButton('Electronics'),
+                _buildCategoryButton('Others'),
+              ],
+            ),
+            TableRow(
+              children: [
+                _buildCategoryButton('Offers', icon: Icons.settings),
+                _buildCategoryButton('Product', icon: Icons.inventory_2),
+                _buildCategoryButton(
+                  'Coupons',
+                  isActive: true,
+                  icon: Icons.card_giftcard,
+                ),
+              ],
             ),
           ],
-        ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCategoryButton(
+    String title, {
+    bool isActive = false,
+    IconData? icon,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(6),
+      child: Container(
+        height: 45,
+        decoration: BoxDecoration(
+          color: isActive ? Colors.green : Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (icon != null) ...[
+                Icon(
+                  icon,
+                  size: 18,
+                  color: isActive ? Colors.white : Colors.black54,
+                ),
+                SizedBox(width: 6),
+              ],
+              Flexible(
+                child: Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: isActive ? Colors.white : Colors.black87,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildIconButton(IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.all(6),
+      child: Container(
+        height: 45,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          shape: BoxShape.circle,
+        ),
+        child: Center(child: Icon(icon, size: 24, color: Colors.black54)),
       ),
     );
   }

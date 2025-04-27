@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/cafe_at_home_ads_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/categories_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
@@ -53,7 +54,9 @@ class HomePage extends StatelessWidget {
 
                   // login and signup button
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push('/auth');
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: Color(0xFF2CC457),
                       // primary: Colors.white,
