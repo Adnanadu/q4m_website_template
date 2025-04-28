@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:q4m_website_template/core/widgets/customized_elevated_button_widget.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key});
@@ -12,19 +13,12 @@ class AppBarWidget extends StatelessWidget {
         Image(image: AssetImage('assets/icons/Q4M_logo.png')),
 
         // login and signup button
-        TextButton(
-          onPressed: () {
+        CustomizedElevatedButtonWidget(
+          text: 'Login / Sign Up',
+          width: 100,
+          onTap: () {
             context.push('/login');
           },
-          style: TextButton.styleFrom(
-            backgroundColor: Color(0xFF2CC457),
-            // primary: Colors.white,
-            padding: EdgeInsets.symmetric(horizontal: 42, vertical: 8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(36),
-            ),
-          ),
-          child: Text('Login / Sign Up', style: TextStyle(color: Colors.white)),
         ),
 
         // menu icon

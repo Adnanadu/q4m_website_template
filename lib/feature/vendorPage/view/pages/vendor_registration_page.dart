@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
-import 'package:q4m_website_template/feature/homePage/view/widgets/appbar_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
@@ -48,7 +47,16 @@ class VendorRegistrationPage extends HookWidget {
           child: Column(
             children: [
               // header with logo and menu icon - appbar
-              AppBarWidget(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image(image: AssetImage('assets/icons/Q4M_logo.png')),
+                  // menu icon
+                  SizedBox(width: 8),
+
+                  IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+                ],
+              ),
               CountryAndLanguageSelectorWidget(),
               SearchBarWidget(searchController: searchController),
 
@@ -207,6 +215,7 @@ class VendorRegistrationPage extends HookWidget {
                       CustomizedElevatedButtonWidget(
                         text: 'Register Now',
                         width: double.infinity,
+
                         onTap: () {
                           if (isAgree.value == true) {
                             context.push('/coupen');
@@ -226,7 +235,9 @@ class VendorRegistrationPage extends HookWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.push('/login');
+                            },
                             child: Text(
                               'Login here',
                               style: TextStyle(
@@ -238,6 +249,7 @@ class VendorRegistrationPage extends HookWidget {
                           ),
                         ],
                       ),
+                      SizedBox(height: 32),
                     ],
                   ),
                 ),

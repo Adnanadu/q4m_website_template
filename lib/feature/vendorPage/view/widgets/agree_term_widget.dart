@@ -40,6 +40,7 @@ class AgreeTermsWidget extends StatelessWidget {
                       style: const TextStyle(
                         color: Color(0xFF1977F2),
                         fontSize: 13,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     const TextSpan(
@@ -55,6 +56,7 @@ class AgreeTermsWidget extends StatelessWidget {
                       style: const TextStyle(
                         color: Color(0xFF1977F2),
                         fontSize: 13,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
