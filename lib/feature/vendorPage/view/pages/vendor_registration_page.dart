@@ -5,6 +5,7 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/appbar_widget
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
+import 'package:q4m_website_template/feature/vendorPage/view/widgets/agree_term_widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/customized_text_field_widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/store_category_Widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/store_description_widget.dart';
@@ -36,6 +37,7 @@ class VendorRegistrationPage extends HookWidget {
       'Beauty',
       'Health',
     ]);
+    final isAgree = useState<bool>(false);
     final screenWidth = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -183,7 +185,12 @@ class VendorRegistrationPage extends HookWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    StoreDescriptionWidget(storeDescriptionController: storeDescriptionController),
+                    SizedBox(height: 8),
+                    StoreDescriptionWidget(
+                      storeDescriptionController: storeDescriptionController,
+                    ),
+                    SizedBox(height: 16),
+                    AgreeTermsWidget(isAgree: isAgree),
                   ],
                 ),
               ),
