@@ -8,6 +8,7 @@ class CoupenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        
         color: Color(0xFF2CC457),
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),

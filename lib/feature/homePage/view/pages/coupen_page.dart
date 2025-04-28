@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:q4m_website_template/feature/homePage/view/widgets/appbar_widget.dart';
+import 'package:q4m_website_template/feature/homePage/view/widgets/appbar_after_login.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/categories_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_language_selector_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/coupen_widget.dart';
@@ -19,7 +19,7 @@ class CoupenPage extends StatelessWidget {
           child: Column(
             children: [
               // header with logo and menu icon - appbar
-              AppBarWidget(),
+              AppBarAfterLoginWidget(),
               // country and language selection
               CountryAndLanguageSelectorWidget(),
               //search bar

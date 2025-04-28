@@ -17,8 +17,7 @@ class HomePage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    SearchController searchController = SearchController();
-
+    final searchController = useSearchController();
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -26,52 +25,64 @@ class HomePage extends HookWidget {
             children: [
               // header with logo and menu icon - appbar
               AppBarWidget(),
-              // country and language selection
-              CountryAndLanguageSelectorWidget(),
-              //search bar
-              SearchBarWidget(searchController: searchController),
-              //login button
-              // LoginAndSignupButtonWidget(),
-
-              //cafe at home image - ads
-              CafeatHomeAdsWidget(),
-              SizedBox(height: 8),
-
-              //categories
-              CategoriesSelectorWidget(),
-
-              CustomizedListViewWidget(
-                text: 'Our Services',
-                categories: services,
-              ),
-              CustomizedListViewWidget(text: 'Top Brands', categories: brands),
-              CustomizedListViewWidget(
-                text: 'Top Categories',
-                categories: categories,
-              ),
-              // Advertisement Container
-              VideoAdsWidget(),
-              VideoAdsWidget(),
-
-              // Products Filter Container
-              ProductFilterWidget(),
-              Row(
-                children: [
-                  Text(
-                    "UAE - DUBAI offers in q4m Online",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-
-              // Products
-              ProductContainerWidget(),
-
-              FooterTableWidget(),
+              HomeBeforeLoginWidget(searchController: searchController),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class HomeBeforeLoginWidget extends StatelessWidget {
+  const HomeBeforeLoginWidget({super.key, required this.searchController});
+
+  final SearchController searchController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // country and language selection
+        CountryAndLanguageSelectorWidget(),
+        //search bar
+        SearchBarWidget(searchController: searchController),
+        //login button
+        // LoginAndSignupButtonWidget(),
+
+        //cafe at home image - ads
+        CafeatHomeAdsWidget(),
+        SizedBox(height: 8),
+
+        //categories
+        CategoriesSelectorWidget(),
+
+        CustomizedListViewWidget(text: 'Our Services', categories: services),
+        CustomizedListViewWidget(text: 'Top Brands', categories: brands),
+        CustomizedListViewWidget(
+          text: 'Top Categories',
+          categories: categories,
+        ),
+        // Advertisement Container
+        VideoAdsWidget(),
+        VideoAdsWidget(),
+
+        // Products Filter Container
+        ProductFilterWidget(),
+        Row(
+          children: [
+            Text(
+              "UAE - DUBAI offers in q4m Online",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+
+        // Products
+        ProductContainerWidget(),
+
+        FooterTableWidget(),
+      ],
     );
   }
 }
