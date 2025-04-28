@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/login_via_social_media_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/register_as_vendor_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/sign_form_field_widget.dart';
-import 'package:q4m_website_template/feature/authPage/view/widgets/signup_button_widget.dart';
 import 'package:q4m_website_template/core/widgets/customized_elevated_button_widget.dart';
 
 class LoginPage extends HookWidget {
