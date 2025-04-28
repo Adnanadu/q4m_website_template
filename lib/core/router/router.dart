@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:q4m_website_template/feature/authPage/view/pages/auth_page.dart';
 import 'package:q4m_website_template/feature/authPage/view/pages/login_page.dart';
+import 'package:q4m_website_template/feature/authPage/view/pages/signup_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/coupen_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/home_after_login_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/home_page.dart';
@@ -14,6 +15,11 @@ final router = GoRouter(
       name: 'home',
       path: '/home',
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      name: 'signup',
+      path: '/signup',
+      builder: (context, state) => const SignupPage(),
     ),
     GoRoute(
       name: 'login',

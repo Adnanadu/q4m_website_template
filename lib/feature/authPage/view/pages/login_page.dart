@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/login_via_social_media_widget.dart';
+import 'package:q4m_website_template/feature/authPage/view/widgets/register_as_vendor_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/sign_form_field_widget.dart';
+import 'package:q4m_website_template/feature/authPage/view/widgets/signup_button_widget.dart';
 
 class LoginPage extends HookWidget {
   const LoginPage({super.key});
@@ -19,8 +21,38 @@ class LoginPage extends HookWidget {
             child: Column(
               spacing: 16,
               children: [
-                Column(children: [
-              ],),
+                /// Login page images
+                Column(
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        width: 408,
+                        height: 222,
+                        child: Stack(
+                          children: [
+                            Image(
+                              image: AssetImage(
+                                'assets/images/bundle_login.png',
+                              ),
+                            ),
+
+                            Positioned(
+                              top: 110,
+                              left: 270,
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/q4m_login.png',
+                                ),
+                                height: 54,
+                                width: 120,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
 
                 /// Login Via Email and Facebook
                 Center(
@@ -80,6 +112,9 @@ class LoginPage extends HookWidget {
 
                       SizedBox(height: 16),
                       SignupButtonWidget(),
+                      SizedBox(height: 8),
+                      RegisterAsVendorButtonWidget(),
+                      SizedBox(height: 16),
                       RichText(
                         text: TextSpan(
                           text: 'Already have an account?',
@@ -115,6 +150,7 @@ class LoginPage extends HookWidget {
                           ],
                         ),
                       ),
+                      SizedBox(height: 32),
                     ],
                   ),
                 ),
