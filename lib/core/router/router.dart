@@ -1,14 +1,14 @@
 import 'package:go_router/go_router.dart';
 import 'package:q4m_website_template/feature/authPage/view/pages/auth_page.dart';
 import 'package:q4m_website_template/feature/authPage/view/pages/login_page.dart';
-import 'package:q4m_website_template/feature/authPage/view/pages/signup_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/coupen_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/home_after_login_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/home_page.dart';
 import 'package:q4m_website_template/feature/homePage/view/pages/product_description_page.dart';
+import 'package:q4m_website_template/feature/vendorPage/view/pages/vendor_registration_page.dart';
 
 final router = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/vendor',
 
   routes: [
     GoRoute(
@@ -16,10 +16,11 @@ final router = GoRouter(
       path: '/home',
       builder: (context, state) => const HomePage(),
     ),
+
     GoRoute(
-      name: 'signup',
-      path: '/signup',
-      builder: (context, state) => const SignupPage(),
+      name: 'vendor',
+      path: '/vendor',
+      builder: (context, state) => const VendorRegistrationPage(),
     ),
     GoRoute(
       name: 'login',

@@ -10,6 +10,7 @@ class SearchBarWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SearchBar(
+        backgroundColor: WidgetStateProperty.all(Colors.grey.shade100),
         controller: searchController,
         constraints: BoxConstraints(minHeight: 40),
         padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 16)),
