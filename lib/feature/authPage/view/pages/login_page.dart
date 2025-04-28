@@ -77,6 +77,9 @@ class LoginPage extends HookWidget {
                         emailController: emailController,
                         passwordController: passwordController,
                       ),
+
+                      SizedBox(height: 16),
+                      SignupButtonWidget(),
                       RichText(
                         text: TextSpan(
                           text: 'Already have an account?',
