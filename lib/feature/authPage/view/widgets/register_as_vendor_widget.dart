@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterAsVendorButtonWidget extends StatelessWidget {
   const RegisterAsVendorButtonWidget({super.key});
@@ -13,7 +14,9 @@ class RegisterAsVendorButtonWidget extends StatelessWidget {
         side: BorderSide(color: Color(0xFF2CC457), width: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(36)),
       ),
-      onPressed: () {},
+      onPressed: () {
+        context.push('/vendor');
+      },
       child: Text('Register as a Vendor'),
     );
   }

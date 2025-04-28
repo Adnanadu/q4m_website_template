@@ -14,7 +14,7 @@ class AppBarWidget extends StatelessWidget {
         // login and signup button
         TextButton(
           onPressed: () {
-            context.push('/auth');
+            context.push('/login');
           },
           style: TextButton.styleFrom(
             backgroundColor: Color(0xFF2CC457),

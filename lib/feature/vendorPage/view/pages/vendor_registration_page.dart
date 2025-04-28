@@ -6,7 +6,7 @@ import 'package:q4m_website_template/feature/homePage/view/widgets/country_and_l
 import 'package:q4m_website_template/feature/homePage/view/widgets/footer_table_widget.dart';
 import 'package:q4m_website_template/feature/homePage/view/widgets/search_bar_widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/agree_term_widget.dart';
-import 'package:q4m_website_template/feature/vendorPage/view/widgets/customized_elevated_button_widget.dart';
+import 'package:q4m_website_template/core/widgets/customized_elevated_button_widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/customized_text_field_widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/store_category_Widget.dart';
 import 'package:q4m_website_template/feature/vendorPage/view/widgets/store_description_widget.dart';
@@ -197,16 +197,21 @@ class VendorRegistrationPage extends HookWidget {
                       SizedBox(height: 16),
 
                       UploadBoxWidget(),
-                      SizedBox(height: 4),
+                      SizedBox(height: 8),
 
                       UploadDataPickerWidget(),
-                      SizedBox(height: 4),
+                      SizedBox(height: 16),
 
                       AgreeTermsWidget(isAgree: isAgree),
+                      SizedBox(height: 16),
                       CustomizedElevatedButtonWidget(
                         text: 'Register Now',
                         width: double.infinity,
-                        onTap: () {},
+                        onTap: () {
+                          if (isAgree.value == true) {
+                            context.push('/coupen');
+                          }
+                        },
                       ),
                       SizedBox(height: 8),
                       Row(

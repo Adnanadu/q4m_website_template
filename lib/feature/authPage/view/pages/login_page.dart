@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/login_via_social_media_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/register_as_vendor_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/sign_form_field_widget.dart';
 import 'package:q4m_website_template/feature/authPage/view/widgets/signup_button_widget.dart';
+import 'package:q4m_website_template/core/widgets/customized_elevated_button_widget.dart';
 
 class LoginPage extends HookWidget {
   const LoginPage({super.key});
@@ -111,7 +113,13 @@ class LoginPage extends HookWidget {
                       ),
 
                       SizedBox(height: 16),
-                      SignupButtonWidget(),
+                      CustomizedElevatedButtonWidget(
+                        text: 'Sign Up',
+                        width: double.infinity,
+                        onTap: () {
+                          context.push('/homeAfterLogin');
+                        },
+                      ),
                       SizedBox(height: 8),
                       RegisterAsVendorButtonWidget(),
                       SizedBox(height: 16),
@@ -131,7 +139,7 @@ class LoginPage extends HookWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 8),
+                      SizedBox(height: 16),
                       RichText(
                         text: TextSpan(
                           text: 'By continuing, you agree to our ',
